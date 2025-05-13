@@ -120,11 +120,10 @@ export default class App extends Component {
       mensagem = 'A gasolina oferece maior eficiência em relação ao preço neste cenário.';
     }
 
-    console.log('Recomendação:', recomendacao); // Depuração da recomendação
+    console.log('Recomendação:', recomendacao); 
 
     this.setState({ recomendacao, mensagem, visibleModal: true });
 
-    // Salvar dados no AsyncStorage
     this.saveData();
   };
 
@@ -136,7 +135,6 @@ export default class App extends Component {
       <View style={globalStyles.container}>
         {!showCalculator ? (
           <>
-            {/* Primeira tela com "Entrar" */}
             <Text style={globalStyles.title}>Calculadora de Combustível</Text>
             <Icon name="tint" size={60} color="#00FFCC" style={globalStyles.icon} />
             <Button title="Entrar" onPress={this.entrar} color="#FF00FF" />
@@ -153,8 +151,6 @@ export default class App extends Component {
             <Button title="Voltar" onPress={this.voltar} color="#FF5733" />
           </>
         )}
-
-        {/* Modal de recomendação */}
         <ModalRecomendacao
           visible={visibleModal}
           recomendacao={recomendacao}
